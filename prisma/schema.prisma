@@ -1,0 +1,106 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Country {
+  id     Int           @id @default(autoincrement())
+  code   String
+  image  String
+
+  cities City[]
+  infos  CountryInfo[]
+
+  @@map("country")
+}
+
+model City {
+  id        Int     @id @default(autoincrement())
+  countryId Int     @map("country_id")
+  slug      String
+  image     String
+
+  country     Country      @relation(fields: [countryId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  attractions Attraction[]
+  infos       CityInfo[]
+
+  @@index([countryId])
+  @@map("city")
+}
+
+model Attraction {
+  id        Int     @id @default(autoincrement())
+  cityId    Int     @map("city_id")
+  slug      String
+  image     String
+  latitude  Float
+  longitude Float
+  address   String
+  website   String
+
+  city  City             @relation(fields: [cityId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  infos AttractionInfo[]
+
+  @@index([cityId])
+  @@map("attraction")
+}
+
+model Language {
+  id   Int    @id @default(autoincrement())
+  code String
+  name String
+
+  countryInfos    CountryInfo[]
+  cityInfos       CityInfo[]
+  attractionInfos AttractionInfo[]
+
+  @@map("language")
+}
+
+model CountryInfo {
+  id          Int    @id @default(autoincrement())
+  countryId   Int    @map("country_id")
+  languageId  Int    @map("language_id")
+  name        String
+  description String
+
+  country  Country  @relation(fields: [countryId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  language Language @relation(fields: [languageId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+
+  @@index([countryId])
+  @@index([languageId])
+  @@map("country_info")
+}
+
+model CityInfo {
+  id          Int    @id @default(autoincrement())
+  cityId      Int    @map("city_id")
+  languageId  Int    @map("language_id")
+  name        String
+  description String
+
+  city     City     @relation(fields: [cityId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  language Language @relation(fields: [languageId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+
+  @@index([cityId])
+  @@index([languageId])
+  @@map("city_info")
+}
+
+model AttractionInfo {
+  id           Int    @id @default(autoincrement())
+  attractionId Int    @map("attraction_id")
+  languageId   Int    @map("language_id")
+  name         String
+  description  String
+
+  attraction Attraction @relation(fields: [attractionId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  language   Language   @relation(fields: [languageId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+
+  @@index([attractionId])
+  @@index([languageId])
+  @@map("attraction_info")
+}

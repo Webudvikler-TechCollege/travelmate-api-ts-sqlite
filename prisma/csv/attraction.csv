@@ -1,0 +1,12 @@
+id,cityId,slug,image,latitude,longitude,address,website
+1,1,monte-titano,/assets/images/locations/monte-titano.jpg,43.9356,12.4473,"Monte Titano, San Marino","https://www.visitsanmarino.com"
+2,2,cruz-de-tejeda,/assets/images/locations/cruz-de-tejeda.jpg,28.0065,-15.6003,"Cruz de Tejeda, 35328 Tejeda, Gran Canaria","https://www.grancanaria.com"
+3,3,luxembourg-old-town,/assets/images/locations/luxembourg-old-town.jpg,49.6116,6.1319,"Ville Haute, Luxembourg","https://www.visitluxembourg.com"
+4,4,mont-saint-michel,/assets/images/locations/mont-saint-michel.jpg,48.6361,-1.5115,"Le Mont-Saint-Michel, Normandy, France","https://www.ot-montsaintmichel.com"
+5,5,temple-bar,/assets/images/locations/temple-bar.jpg,53.3455,-6.2640,"Temple Bar, Dublin, Ireland","https://www.visitdublin.com"
+6,6,game-of-thrones-studio-tour,/assets/images/locations/game-of-thrones-studio-tour.jpg,54.3287,-6.2708,"The Boulevard, Banbridge, Northern Ireland","https://www.gameofthronesstudiotour.com"
+7,7,catedral-de-canarias,/assets/images/locations/catedral-de-canarias.jpg,28.1005,-15.4156,"Plaza de Santa Ana, Las Palmas de Gran Canaria, Spain","https://diocesisdecanarias.net"
+8,8,lake-garda,/assets/images/locations/lake-garda.jpg,45.6049,10.6350,"Lake Garda, Sirmione, Italy","https://www.visitgarda.com"
+9,9,florence-cathedral,/assets/images/locations/florence-cathedral.jpg,43.7731,11.2560,"Piazza del Duomo, Florence, Italy","https://duomo.firenze.it"
+10,10,gullfoss,/assets/images/locations/gullfoss.jpg,64.3271,-20.1199,"Gullfoss, Iceland","https://www.south.is"
+11,11,malbun,/assets/images/locations/malbun.jpg,0,0,"Malbun, Liechtenstein",""

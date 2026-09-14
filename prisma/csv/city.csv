@@ -1,0 +1,12 @@
+id,country_id,slug,image
+1,1,san-marino,/assets/images/cities/san-marino-city.jpg
+2,2,tejeda,/assets/images/cities/tejeda-city.jpg
+3,3,luxembourg-city,/assets/images/cities/luxembourg-city.jpg
+4,4,le-mont-saint-michel,/assets/images/cities/mont-saint-michel-city.jpg
+5,5,dublin,/assets/images/cities/dublin.jpg
+6,6,banbridge,/assets/images/cities/banbridge.jpg
+7,2,las-palmas-de-gran-canaria,/assets/images/cities/las-palmas.jpg
+8,7,sirmione,/assets/images/cities/sirmione.jpg
+9,7,florence,/assets/images/cities/florence.jpg
+10,8,blaskogabyggd,/assets/images/cities/blaskogabyggd.jpg
+11,9,vaduz,/assets/images/cities/vaduz.jpg
