@@ -1,42 +1,93 @@
-# WeGo Svendeprøve API
+# TravelMate API
 
-Dette API skal du bruge i din svendeprøve.
-Det fungerer som datagrundlag for dit website, hvor brugere kan finde og booke samkørsel mellem byer.
+Et simpelt REST API bygget med **Node.js, Express, TypeScript, Prisma og SQLite**.
 
-Du skal hente API’et fra det udleverede repository, installere det og køre det lokalt, så din frontend kan hente og sende data.
+API'et indeholder data om lande, byer og seværdigheder samt oversættelser på forskellige sprog.
 
-Det indeholder endpoints hvor du kan hente ture (trips), bookings, brugere, anmeldelser og indhold.
+## Teknologier
 
-Du kan tilpasse API’et, hvis det er nødvendigt i din løsning.
+* Node.js
+* Express
+* TypeScript
+* Prisma
+* SQLite
+* Better SQLite3
+* CSV seed data
 
----
+## Installation
 
-## Kom i gang
+Klon projektet og installer dependencies:
 
-### 1. Klon repo og installér afhængigheder
-
-```bash
-git clone [REPO-URL]
-cd [MAPPE-NAVN]
-```
-### 2. Kopier eller omdøb *.env.example* til *.env*
-
-```bash
-cp .env.example .env
-```
-### 3. Installer pakker
 ```bash
 npm install
 ```
-### 4. Start serveren
+
+Opret databasen og indsæt seed data:
+
+```bash
+npx prisma generate
+npx prisma db push
+npx prisma db seed
+```
+
+Start development serveren:
+
 ```bash
 npm run dev
 ```
-### 5. Få overblik over data
+
+## Data
+
+API'et arbejder med følgende hovedområder:
+
+* **Countries** – lande
+* **Cities** – byer
+* **Attractions** – seværdigheder
+* **Languages** – sprog
+* **CountryInfo** – oversatte landeinformationer
+* **CityInfo** – oversatte byinformationer
+* **AttractionInfo** – oversatte informationer om seværdigheder
+
+Relationerne kan overordnet beskrives som:
+
+```text
+Country
+  └── City
+       └── Attraction
+
+Language
+  ├── CountryInfo
+  ├── CityInfo
+  └── AttractionInfo
+```
+
+## Seed data
+
+Seed data ligger som CSV-filer i:
+
+```text
+prisma/csv/
+```
+
+Når du kører:
+
+```bash
+npx prisma db seed
+```
+
+ryddes databasen, hvorefter CSV-data indsættes igen i den korrekte rækkefølge.
+
+## Prisma Studio
+
+Data kan ses og redigeres med Prisma Studio:
+
 ```bash
 npx prisma studio
 ```
-Nu skulle du gerne kunne se en oversigt over dine modeller og data i din browser. Det er Prismas admin-panel til din database.
 
-Klik på en af modellerne til venstre hvis du vil se og redigere data.# travelmate-api-ts-sqlite
-# travelmate-api-ts-sqlite
+## Postman Dokumentation
+Du kan finde en Postman Dokumentation på følgende link:
+https://documenter.getpostman.com/view/6540576/2sBYAytoq6
+
+## Formål
+API'et er udviklet som undervisningsprojekt og kan bruges som backend til en TravelMate-applikation bygget eksempelvis med React.

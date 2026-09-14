@@ -7,6 +7,8 @@ import { authRoutes } from './routes/authRoutes.js';
 import { countryRoutes } from './routes/countryRoutes.js';
 import { cityRoutes } from './routes/cityRoutes.js';
 import { attractionRoutes } from './routes/attractionRoutes.js';
+import { languageController } from './controllers/languageController.js';
+import { languageRoutes } from './routes/languageRoutes.js';
 
 dotenv.config();
 const port = process.env.PORT || 3000
@@ -21,6 +23,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/countries', countryRoutes);
 app.use('/api/cities', cityRoutes);
 app.use('/api/attractions', attractionRoutes);
+app.use('/api/languages', languageRoutes);
 
 
 // Handle all errors
