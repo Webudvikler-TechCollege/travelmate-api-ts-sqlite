@@ -7,7 +7,6 @@ import { authRoutes } from './routes/authRoutes.js';
 import { countryRoutes } from './routes/countryRoutes.js';
 import { cityRoutes } from './routes/cityRoutes.js';
 import { attractionRoutes } from './routes/attractionRoutes.js';
-import { languageController } from './controllers/languageController.js';
 import { languageRoutes } from './routes/languageRoutes.js';
 
 dotenv.config();
@@ -17,6 +16,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
+
+// Gør filer i assets-mappen tilgængelige på fx /assets/images/countries/san-marino.jpg.
+app.use('/assets', express.static('assets'));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
